@@ -1,45 +1,34 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import mlab
 from post import Post
 
 app = Flask(__name__)
 mlab.connect()
 
-p = {
-  "title": "C4E21",
-  "content": "Module web, sắp hackathon",
-  "author": "Quân",
-  "date": "2018/09/02",
-}
+@app.route("/post/<post_id>")
+def post(post_id):
+  post = Post.objects().with_id(post_id)
+  return render_template("post.html", post=post)
 
-ps = [
-  {
-    "title": "C4E21",
-    "content": "Module web, sắp hackathon",
-    "author": "Quân",
-    "date": "2018/09/02",
-  },
-  {
-    "title": "C4E21 - Hackathon",
-    "content": "8 giờ code, hoàn thiện sản phẩm",
-    "author": "Huy",
-    "date": "2018/09/03",
-  },
-  {
-    "title": "C4E21 - Demo",
-    "content": "2 phút trình bày, 15 phút hỏi đáp, sản phẩm sẵn sàng",
-    "author": "Mạnh",
-    "date": "2018/09/04",
-  }
-]
+@app.route("/delete/<post_id>")
+def delete_post(post_id):
+  post = Post.objects().with_id(post_id)
+  if post is None:
+    return "Not found"
+  else:
+    post.delete()
+    return "Deleted"
 
-@app.route("/post")
-def post():
-  return render_template("dict.html", post=p)
+@app.route("/update/<post_id>")
+def update(post_id):
+  p = Post.objects().with_id(post_id)
+  return render_template("update_post.html", post=p)
 
 @app.route("/posts")
 def posts():
-  return render_template("dicts.html", posts=ps)
+  all_posts = Post.objects()
+  return render_template("posts.html", posts=all_posts)
+
 
 @app.route("/new-post", methods=["GET", "POST"])
 def new_post():
@@ -56,7 +45,7 @@ def new_post():
     new_post = Post(title=t, author=a, content=c)
     new_post.save()
 
-    return "OK"
+    return redirect(url_for("posts"))
 
 if __name__ == "__main__":
   app.run(debug=True)

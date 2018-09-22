@@ -7,10 +7,10 @@
   <title>Document</title>
 </head>
 <body>
-  {% for post in posts %}
-    <h3>{{ post.title }}</h3>
-    <div>{{ post.author }}</div>
-    <p>{{ post.content }}</p>
-  {% endfor %}
+  <a href="/delete/{{ post.id }}">Delete</a>
+  <a href="/update/{{ post.id }}">Update</a>
+  <h3>{{ post.title }}</h3>
+  <div>{{ post.author }}</div>
+  <p>{{ post.content }}</p>
 </body>
 </html>
