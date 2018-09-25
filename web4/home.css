@@ -1,0 +1,95 @@
+h4 {
+  color: orange;
+}
+
+h5 {
+  color: purple;
+}
+
+#last_title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: lighter;
+  font-size: 1.2rem;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.text-decor {
+  text-decoration: underline;
+}
+
+#image {
+  width: 200px;
+  height: 300px;
+  object-fit: cover; /* fill, contain, none, cover */
+}
+
+#container {
+  background-image: url(https://www.touropia.com/gfx/d/amazing-desert-landscapes/sossusvlei.jpg?v=9fe5e02946d92b8eb1cd850e75e2714e);
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-red {
+  background-color: #c96161;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+html, body {
+  height: 100%;
+}
+
+.h-20p {
+  height: 100px;
+}
+
+.w-40p {
+  width: 200px;
+}
+
+.h-10 {
+  height: 20%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mb-10p {
+  margin-bottom: 10px;
+  /* margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px; */
+}
+
+.m-20p {
+  margin: 20px;
+}
+
+.m-c {
+  margin: 10px 5px 20px 7px;
+}
+
+.pt-16p {
+  padding-top: 16px;
+}
+
+.pl-8p {
+  padding-left: 8px;
+}
+
+.b-c {
+  border: 2px #cccccc solid;
+  border-radius: 100%;
+}
