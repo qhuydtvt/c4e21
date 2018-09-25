@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/index.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="controls" class="m-big">
+    <div class="btn item-left p-big">
+      <a id="new_post" href="{{ url_for('new_post') }}">Add new post</a>
+    </div>
+
+  </div>
+  <div id="main_container" class="item-left" >
+      {% for post in posts %}
+        <div class="item-card">
+          
+          <a class="title" href="/post/{{ post.id }}">
+            <div class="item-card-inner">
+              <span class="author">{{ post.author }}</span>
+                <span class="title">{{ post.title }}</span>
+                <div></div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+
+</body>
+</html>
